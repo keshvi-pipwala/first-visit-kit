@@ -1,0 +1,671 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="author" content="Keshvi Pipwala"><meta name="description" content="Five working tools for getting a local brand to its first creator visit faster: setup forecast, creator matching, post check, brand report and growth plan. By Keshvi Pipwala."><meta property="og:type" content="website"><meta property="og:title" content="First Visit Kit"><meta property="og:description" content="Five working tools for getting a local brand to its first creator visit faster: setup forecast, creator matching, post check, brand report and growth plan. By Keshvi Pipwala."><meta property="og:url" content="https://keshvi-pipwala.github.io/first-visit-kit/"><meta property="og:image" content="https://keshvi-pipwala.github.io/first-visit-kit/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="First Visit Kit"><meta name="twitter:description" content="Five working tools for getting a local brand to its first creator visit faster: setup forecast, creator matching, post check, brand report and growth plan. By Keshvi Pipwala."><meta name="twitter:image" content="https://keshvi-pipwala.github.io/first-visit-kit/og.png"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F2C230'/%3E%3Ccircle cx='16' cy='14' r='6' fill='none' stroke='%2316201B' stroke-width='3'/%3E%3Cpath d='M16 20v7' stroke='%2316201B' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"><style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>First Visit Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F3F5F1; --surface:#FFFFFF; --sunk:#E9EDE6; --ink:#16201B; --ink2:#46534C; --muted:#6F7B74; --line:#D8DED5;
+  --accent:#1D5A43; --accent-soft:#DCEBE3; --on-accent:#FFFFFF;
+  --sign:#F2C230; --on-sign:#16201B;
+  --good:#23794B; --good-soft:#DDF0E4; --warn:#9A6408; --warn-soft:#FBEFD6; --crit:#B42318; --crit-soft:#FBE3E0;
+  --s1:#1E8060; --s2:#B0801A; --dot:#1D5A43; --dot-off:#B9C2BB;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1512; --surface:#161E1A; --sunk:#1D2621; --ink:#E6ECE8; --ink2:#B2BDB6; --muted:#86928B; --line:#2B3530;
+    --accent:#6CC39A; --accent-soft:#1F3A2E; --on-accent:#0F1512;
+    --sign:#F2C230; --on-sign:#16201B;
+    --good:#6CC39A; --good-soft:#1C3328; --warn:#E3B04F; --warn-soft:#352A14; --crit:#F08A7E; --crit-soft:#3A1F1C;
+    --s1:#3A9870; --s2:#B3862A; --dot:#6CC39A; --dot-off:#3C4842;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1512; --surface:#161E1A; --sunk:#1D2621; --ink:#E6ECE8; --ink2:#B2BDB6; --muted:#86928B; --line:#2B3530;
+  --accent:#6CC39A; --accent-soft:#1F3A2E; --on-accent:#0F1512;
+  --sign:#F2C230; --on-sign:#16201B;
+  --good:#6CC39A; --good-soft:#1C3328; --warn:#E3B04F; --warn-soft:#352A14; --crit:#F08A7E; --crit-soft:#3A1F1C;
+  --s1:#3A9870; --s2:#B3862A; --dot:#6CC39A; --dot-off:#3C4842;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:20px;padding-block:0 48px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* header */
+.top{padding-block:36px 20px;display:grid;gap:18px}
+.byline{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:13px;color:var(--ink2)}
+.sign{display:inline-flex;align-items:center;gap:6px;background:var(--sign);color:var(--on-sign);font-weight:700;font-family:var(--display);padding:3px 10px;border-radius:3px;font-size:13px;letter-spacing:.02em}
+.top h1{font-size:clamp(34px,5.4vw,60px);line-height:1.02;font-weight:800;max-width:17ch}
+.top h1 em{font-style:normal;background:linear-gradient(transparent 62%, var(--sign) 62%, var(--sign) 92%, transparent 92%)}
+.lede{max-width:64ch;color:var(--ink2);font-size:16.5px}
+.platter{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:6px}
+.plate{all:unset;cursor:pointer;display:grid;gap:6px;align-content:start;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);transition:border-color .15s, transform .15s}
+.plate:hover{border-color:var(--accent);transform:translateY(-1px)}
+.plate:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.plate b{font-family:var(--display);font-size:17px}
+.plate small{color:var(--muted);font-size:12.5px;line-height:1.4}
+.plate .jd{font-size:12.5px;color:var(--ink2);border-left:2px solid var(--sign);padding-left:8px}
+.synthetic{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);background:var(--sunk);border-radius:8px;padding:10px 14px}
+
+.minute{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.minute>div{padding:16px;display:grid;gap:6px;align-content:start;border-right:1px solid var(--line)}
+.minute>div:last-child{border-right:0;background:var(--sunk)}
+.minute p{font-size:14px;color:var(--ink2)}
+.minute p b{color:var(--ink)}
+.minute-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.minute-h h2{font-size:18px}
+.brief textarea{width:100%;min-height:78px;resize:vertical;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit;color:inherit;line-height:1.5}
+.parsed{display:grid;gap:6px}
+.pf{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:13.5px;padding:7px 10px;border-radius:8px;background:var(--sunk)}
+.pf .src{font-family:var(--mono);font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pf .c{font-family:var(--mono);font-size:12px;text-align:right}
+.pf.hd{background:transparent;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-block:0}
+.needs{outline:2px solid var(--warn)!important;outline-offset:2px;border-radius:8px}
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:4px;overflow-x:auto;padding-block:10px;border-bottom:1px solid var(--line);margin-top:18px;scrollbar-width:none}
+.tab{all:unset;cursor:pointer;white-space:nowrap;padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--ink2)}
+.tab:hover{background:var(--sunk)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab:focus-visible{outline:2px solid var(--accent)}
+section.panel{padding-top:26px;display:grid;gap:20px}
+.panel-head{display:grid;gap:6px;max-width:72ch}
+.panel-head h2{font-size:clamp(24px,3vw,32px);font-weight:700}
+.panel-head p{color:var(--ink2)}
+.grid2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:18px;align-items:start}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:14px;min-width:0}
+.box h3{font-size:16px;font-weight:700}
+.field{display:grid;gap:6px}
+.field label,.lbl{font-size:13px;font-weight:600;color:var(--ink2)}
+select,input[type=number]{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tier{display:grid;grid-template-columns:auto 1fr 96px;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+.tier input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+.tier .t-name{font-weight:600}
+.tier .t-sub{font-size:12px;color:var(--muted)}
+.dollar{position:relative}
+.dollar span{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px}
+.dollar input{padding-left:22px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpi{background:var(--sunk);border-radius:10px;padding:12px;display:grid;gap:2px}
+.kpi .v{font-family:var(--display);font-size:28px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .k{font-size:12.5px;color:var(--ink2)}
+.kpi.hero{background:var(--accent);color:var(--on-accent)}
+.kpi.hero .k{color:var(--on-accent);opacity:.85}
+.notes{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.note{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:8px;font-size:14px}
+.note .pill{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-top:2px}
+.note.warn{background:var(--warn-soft)} .note.warn .pill{background:var(--warn);color:var(--surface)}
+.note.good{background:var(--good-soft)} .note.good .pill{background:var(--good);color:var(--surface)}
+.note.crit{background:var(--crit-soft)} .note.crit .pill{background:var(--crit);color:var(--surface)}
+.note button{all:unset;cursor:pointer;color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.mapbox{background:var(--sunk);border-radius:10px;overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+details{font-size:14px;color:var(--ink2)}
+details summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}
+
+/* match */
+.ranked{display:grid;gap:8px}
+.cr{display:grid;grid-template-columns:30px minmax(0,1fr) 120px;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.cr .rk{font-family:var(--display);font-weight:800;font-size:18px;color:var(--muted);text-align:center}
+.cr .who{display:grid;gap:4px;min-width:0}
+.cr .h{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--ink2);white-space:nowrap}
+.chip.hi{background:var(--accent-soft);color:var(--ink)}
+.chip.new{background:var(--warn-soft);color:var(--ink)}
+.bar{height:8px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+.score{display:grid;gap:4px;font-size:12.5px;color:var(--ink2);text-align:right}
+.score b{font-family:var(--display);font-size:18px;color:var(--ink)}
+.held{display:grid;gap:6px}
+.held div{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;padding:7px 10px;border-radius:8px;background:var(--sunk)}
+.held span:last-child{color:var(--ink2);text-align:right}
+.wt{display:grid;grid-template-columns:110px 1fr 38px;gap:10px;align-items:center;font-size:13.5px}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font-weight:600;padding:9px 14px;border-radius:8px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.drafts{display:grid;gap:10px;padding:14px;border-radius:10px;background:var(--accent-soft)}
+.draft{display:grid;gap:6px;background:var(--surface);border-radius:8px;padding:12px;font-size:14px}
+.draft .to{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12.5px;color:var(--ink2)}
+.draft p{white-space:pre-wrap}
+/* tables */
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.st{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.st.ok{background:var(--good-soft);color:var(--good)}
+.st.rv{background:var(--warn-soft);color:var(--warn)}
+.st.no{background:var(--crit-soft);color:var(--crit)}
+
+/* charts */
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--muted);font-family:var(--body);font-size:11px}
+.chart .axis{stroke:var(--line)}
+.chart .grid{stroke:var(--line);stroke-dasharray:2 3}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12.5px;padding:6px 9px;border-radius:6px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .1s}
+.tip.on{opacity:1}
+
+/* funnel */
+.fun{display:grid;gap:8px}
+.fr{display:grid;grid-template-columns:190px minmax(0,1fr) 140px;gap:12px;align-items:center;font-size:13.5px}
+.fr .ev{font-family:var(--mono);font-size:12.5px;overflow:hidden;text-overflow:ellipsis}
+.fr .track{height:22px;background:var(--sunk);border-radius:4px;position:relative}
+.fr .track i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:4px}
+.fr.drop .track i{background:var(--sign)}
+.fr .pct{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink2)}
+.fr.drop .pct{color:var(--ink);font-weight:700}
+.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.xp{display:grid;gap:8px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:14px}
+.xp h3{font-size:16.5px}
+.xp dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0;font-size:13.5px}
+.xp dt{color:var(--muted);font-weight:600}
+.xp dd{margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.src{font-size:13px;color:var(--ink2)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;opacity:0;transition:all .2s;pointer-events:none;z-index:20;max-width:calc(100% - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:13.5px;color:var(--ink2)}
+.copyable{all:unset;cursor:pointer;font-family:var(--mono);font-size:13px;border-bottom:1px dashed var(--muted)}
+
+@media (max-width:900px){
+  .minute{grid-template-columns:1fr 1fr}.minute>div{border-bottom:1px solid var(--line)}
+  .pf{grid-template-columns:120px 1fr 80px}.pf .src{display:none}
+  .platter{grid-template-columns:repeat(2,1fr)}
+  .grid2,.two{grid-template-columns:1fr}
+  .cards3{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .minute{grid-template-columns:1fr}.minute>div{border-right:0}
+  .platter{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .cr{grid-template-columns:24px minmax(0,1fr);}
+  .cr .score{grid-column:2;text-align:left}
+  .fr{grid-template-columns:1fr 70px}
+  .fr .ev{grid-column:1/-1}
+  .tier{grid-template-columns:auto 1fr 84px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head><body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="byline"><span class="sign">FIRST VISIT KIT</span><span>A working concept by <b>Keshvi Pipwala</b> for Storytime's Software Engineer, Product &amp; Growth role</span></div>
+    <h1>Get every brand to its <em>first creator visit</em> faster.</h1>
+    <p class="lede">Your posting lists the problems this role owns. I picked five of them and made a working version of each, on made-up New York data, so we can argue about real tradeoffs instead of slides. Every screen below reacts to what you change.</p>
+    <div class="minute-h"><h2>If you have one minute</h2><span class="eyebrow">The whole argument, then the tools</span></div>
+    <div class="minute">
+      <div><span class="eyebrow">The problem</span><p>Brands pay month to month with no long-term contract. <b>A brand that gets no creator visit in its first week</b> can decide influencer marketing doesn't work for it and leave before the product proves itself.</p></div>
+      <div><span class="eyebrow">What I'd ship first</span><p>A setup screen that <b>forecasts days to first visit</b> and fixes weak settings in one tap, plus a <b>72-hour rescue</b> for campaigns with no accepts.</p></div>
+      <div><span class="eyebrow">How we'd know</span><p><b>Median hours from launch to first redeemed visit</b>, by business type and neighborhood. One number the team can move and check weekly.</p></div>
+      <div><span class="eyebrow">Who made this</span><p><b>Keshvi Pipwala.</b> AI Product Manager at ASU (0 to 5,000+ users). Contract Software Engineer, NASA L'SPACE Program at ASU. <a href="https://www.linkedin.com/in/keshvi-pipwala-5a7bb0247/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://keshvi-portfolio-ten.vercel.app/" target="_blank" rel="noopener">Portfolio</a></p></div>
+    </div>
+    <div class="platter" id="platter">
+      <button class="plate" data-go="launch" type="button"><span class="eyebrow">01 · Brands</span><b>Launch</b><small>Campaign setup that forecasts the first visit before a brand hits launch.</small><span class="jd">"how brands sign up, create campaigns"</span></button>
+      <button class="plate" data-go="match" type="button"><span class="eyebrow">02 · Creators</span><b>Match</b><small>Explainable creator ranking. Distance counts more than follower count.</small><span class="jd">"creator discovery, matching"</span></button>
+      <button class="plate" data-go="check" type="button"><span class="eyebrow">03 · Content</span><b>Post check</b><small>Auto-approves posts it's sure about and routes the rest to a person, with a reason.</small><span class="jd">"content-approval experiences"</span></button>
+      <button class="plate" data-go="report" type="button"><span class="eyebrow">04 · Brands</span><b>Brand report</b><small>What a café owner needs to know about a campaign, on one page.</small><span class="jd">"help brands understand campaign performance"</span></button>
+      <button class="plate" data-go="growth" type="button"><span class="eyebrow">05 · Team</span><b>Growth plan</b><small>Event spec, activation funnel, three experiments and a stalled-brand queue.</small><span class="jd">"improve activation, conversion"</span></button>
+    </div>
+    <p class="synthetic"><b>Note</b><span>All brands, creators and numbers here are synthetic. The models are my assumptions, written out under each tool. Four product facts come from public sources and are cited in <button class="note-link copyable" data-go="notes" type="button" style="font-family:inherit;font-size:inherit">Notes</button>. This is an independent concept and isn't affiliated with Storytime.</span></p>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Tools">
+    <button class="tab" role="tab" id="t-launch" data-tab="launch" aria-selected="true">Launch</button>
+    <button class="tab" role="tab" id="t-match" data-tab="match" aria-selected="false">Match</button>
+    <button class="tab" role="tab" id="t-check" data-tab="check" aria-selected="false">Post check</button>
+    <button class="tab" role="tab" id="t-report" data-tab="report" aria-selected="false">Brand report</button>
+    <button class="tab" role="tab" id="t-growth" data-tab="growth" aria-selected="false">Growth plan</button>
+    <button class="tab" role="tab" id="t-notes" data-tab="notes" aria-selected="false">Notes</button>
+  </nav>
+
+  <!-- LAUNCH -->
+  <section class="panel" id="p-launch" role="tabpanel" aria-labelledby="t-launch">
+    <div class="panel-head">
+      <span class="eyebrow">01 · Brand activation</span>
+      <h2>A campaign setup that shows the brand what happens next</h2>
+      <p>A new brand picks reach tiers and an offer value. Before they launch, the setup tells them how many creators nearby will see the offer, when the first visit will probably come, and which setting is holding them back.</p>
+    </div>
+    <div class="box brief">
+      <div class="row" style="justify-content:space-between"><h3>Start from one sentence</h3><span class="eyebrow">AI intake with a confidence gate</span></div>
+      <p class="src">Most owners won't think in reach tiers. Let them describe the goal in their own words, fill the setup from it, and ask them to confirm only what the parser isn't sure about.</p>
+      <label for="brief" class="lbl">What the brand types</label>
+      <textarea id="brief" rows="3"></textarea>
+      <div class="row"><button class="btn" type="button" id="parse">Fill the setup</button><button class="btn ghost" type="button" id="ex">Try another example</button></div>
+      <div class="parsed" id="parsed"></div>
+      <p class="src">Fields under 0.85 confidence are outlined in the form below for the owner to confirm, the same gate Post check uses. In production this is one LLM call returning a fixed schema with a confidence per field. Here a rule-based parser stands in, so the page runs without an API key.</p>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <h3>Campaign setup</h3>
+        <div class="split">
+          <div class="field"><label for="biz">Business type</label>
+            <select id="biz"><option value="cafe">Café</option><option value="restaurant">Restaurant</option><option value="fitness">Fitness studio</option><option value="retail">Retail shop</option></select></div>
+          <div class="field"><label for="hood">Location</label><select id="hood"></select></div>
+        </div>
+        <div class="field"><label for="radius">Creator radius: <span id="radiusV" class="num"></span></label><input type="range" id="radius" min="0.5" max="5" step="0.25"></div>
+        <div class="field"><span class="lbl">Reach tiers and offer per visit</span>
+          <div class="tier"><input type="checkbox" id="tier-nano" aria-label="Nano tier"><div><div class="t-name">Nano</div><div class="t-sub">1k-5k followers</div></div><div class="dollar"><span>$</span><input type="number" id="offer-nano" min="0" step="1" aria-label="Nano offer"></div></div>
+          <div class="tier"><input type="checkbox" id="tier-core" aria-label="Core tier"><div><div class="t-name">Core</div><div class="t-sub">5k-15k followers</div></div><div class="dollar"><span>$</span><input type="number" id="offer-core" min="0" step="1" aria-label="Core offer"></div></div>
+          <div class="tier"><input type="checkbox" id="tier-mid" aria-label="Mid tier"><div><div class="t-name">Mid</div><div class="t-sub">15k-60k followers</div></div><div class="dollar"><span>$</span><input type="number" id="offer-mid" min="0" step="1" aria-label="Mid offer"></div></div>
+        </div>
+        <div class="field"><label for="cap">Monthly visit cap</label><input type="number" id="cap" min="1" step="1"></div>
+      </div>
+      <div class="box">
+        <div class="row" style="justify-content:space-between"><h3>Forecast for the first 30 days</h3><span class="eyebrow">Updates as you edit</span></div>
+        <div class="kpis" id="kpis"></div>
+        <ul class="notes" id="guards"></ul>
+        <div class="mapbox" id="map" aria-label="Map of creators near the venue"></div>
+        <div class="legend"><span><i style="background:var(--dot)"></i>Sees this offer</span><span><i style="background:var(--dot-off)"></i>Nearby, not included</span><span><i style="background:var(--sign);border-radius:2px;outline:1.5px solid var(--ink)"></i>Your venue</span><span>Grid squares are 1 km</span></div>
+        <details><summary>How this estimate works</summary><ul>
+          <li>A creator sees the offer if they're in a chosen tier, inside the radius, active in the last 45 days, and post about this kind of business.</li>
+          <li>Chance of accepting = tier base rate (Nano 35%, Core 28%, Mid 16%) × offer vs. a tier anchor ($10 / $20 / $35) × distance decay (halves about every 1.4 km) × audience fit.</li>
+          <li>Expected posts use each creator's past post rate. New creators are assumed to post 70% of the time.</li>
+          <li>Days to first visit treat visits as random arrivals at the forecast monthly rate, plus 2 days for the creator to book.</li>
+          <li>All rates are my placeholders. With real acceptance logs this becomes a fitted model per tier and neighborhood.</li>
+        </ul></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATCH -->
+  <section class="panel" id="p-match" role="tabpanel" aria-labelledby="t-match" hidden>
+    <div class="panel-head">
+      <span class="eyebrow">02 · Creator matching</span>
+      <h2>A ranking the partnerships team can explain to a brand</h2>
+      <p>This uses the brand, location and radius from Launch. Every creator gets a score out of 100 with the reasons shown, and anyone held back gets a stated reason. Distance carries the most weight by default because a creator who lives nearby can come back again.</p>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <h3>What counts, and how much</h3>
+        <div id="weights" style="display:grid;gap:10px"></div>
+        <div class="row"><button class="btn ghost" type="button" id="resetW">Reset weights</button></div>
+        <div class="kpis" id="matchKpis"></div>
+        <h3>Held back, with reasons</h3>
+        <div class="held" id="held"></div>
+      </div>
+      <div class="box">
+        <div class="row" style="justify-content:space-between"><h3 id="matchTitle">Top creators</h3><button class="btn" type="button" id="invite">Draft invites for top 3</button></div>
+        <div class="drafts" id="drafts" hidden></div>
+        <div class="ranked" id="ranked"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST CHECK -->
+  <section class="panel" id="p-check" role="tabpanel" aria-labelledby="t-check" hidden>
+    <div class="panel-head">
+      <span class="eyebrow">03 · Content approval</span>
+      <h2>Approve the posts it's sure about. Send the rest to a person.</h2>
+      <p>After a visit, someone has to confirm the creator posted what was promised. This checker scores each post and auto-approves only above a confidence threshold. It's tested against 72 posts a person already labeled, so the precision figure below is measured, not claimed. Missing ad disclosure always goes to review, since FTC rules require paid posts to say they're paid.</p>
+    </div>
+    <div class="grid2">
+      <div class="box">
+        <div class="field"><label for="thr">Auto-approve threshold: <span id="thrV" class="num mono"></span></label><input type="range" id="thr" min="0.50" max="0.99" step="0.01"></div>
+        <div class="kpis" id="checkKpis"></div>
+        <div class="chart" id="tradeoff"></div>
+        <div class="legend"><span><svg width="22" height="10" aria-hidden="true"><line x1="0" y1="5" x2="22" y2="5" stroke="var(--s1)" stroke-width="2"/></svg>Precision on auto-approved posts</span><span><svg width="22" height="10" aria-hidden="true"><line x1="0" y1="5" x2="22" y2="5" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 3"/></svg>Share auto-approved</span></div>
+        <details><summary>What the checker looks at</summary><ul>
+          <li>Brand account tagged, location tagged, caption names the business, paid-post disclosure present, posted within 7 days of the visit, and no other venue tagged.</li>
+          <li>The score is a weighted sum passed through a logistic curve. Disclosure and timing carry the most weight because they're the hardest to fix after the fact.</li>
+          <li>Labels include a few judgment calls a rule can't see, like a photo taken somewhere else. Those are why precision drops as the threshold goes down.</li>
+          <li>In production I'd add an LLM pass on the caption and image for the long tail, with the rule score as the fallback if the model call fails.</li>
+        </ul></details>
+      </div>
+      <div class="box">
+        <div class="row" style="justify-content:space-between"><h3 id="queueTitle">Review queue</h3><span class="eyebrow" id="queueSub"></span></div>
+        <div class="tscroll"><table><thead><tr><th>Creator</th><th>Why it's here</th><th class="n">Score</th><th>Label</th></tr></thead><tbody id="queue"></tbody></table></div>
+        <p class="src" id="wrongAuto"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORT -->
+  <section class="panel" id="p-report" role="tabpanel" aria-labelledby="t-report" hidden>
+    <div class="panel-head">
+      <span class="eyebrow">04 · Brand reporting</span>
+      <h2>Halfmoon Coffee, Nolita: eight weeks on the platform</h2>
+      <p>A fictional café's report, written for the owner rather than a marketer. It leads with visits and posts, puts cost per post next to them, and ends with one thing to change.</p>
+    </div>
+    <div class="kpis" id="repKpis"></div>
+    <div class="two">
+      <div class="box"><h3>Visits redeemed per week</h3><div class="chart" id="weekly"></div></div>
+      <div class="box"><h3>Creators who drove the most visits</h3><div class="tscroll"><table><thead><tr><th>Creator</th><th class="n">Followers</th><th class="n">Visits</th><th class="n">Posts</th><th class="n">Est. views</th></tr></thead><tbody id="topC"></tbody></table></div></div>
+    </div>
+    <div class="box"><h3>What to change next</h3><ul class="notes" id="repNext"></ul></div>
+  </section>
+
+  <!-- GROWTH -->
+  <section class="panel" id="p-growth" role="tabpanel" aria-labelledby="t-growth" hidden>
+    <div class="panel-head">
+      <span class="eyebrow">05 · Activation and internal tools</span>
+      <h2>Where new brands stall, and what I'd test first</h2>
+      <p>A synthetic cohort of 200 brands that started signup. The funnel is built from the events in the spec below. The yellow row is the biggest drop, and each experiment targets one step.</p>
+    </div>
+    <div class="box"><h3>Brand activation funnel</h3><div class="fun" id="funnel"></div></div>
+    <div class="cards3" id="xps"></div>
+    <div class="two">
+      <div class="box"><h3>Event spec</h3><div class="tscroll"><table><thead><tr><th>Event</th><th>Fires when</th><th>Key properties</th></tr></thead><tbody id="spec"></tbody></table></div></div>
+      <div class="box"><h3>Stalled-brand queue for partnerships</h3><p class="src">Runs daily. Each brand shows where it stopped and the next step for the account owner.</p><div class="tscroll"><table><thead><tr><th>Brand</th><th>Stuck at</th><th class="n">Days</th><th>Suggested next step</th></tr></thead><tbody id="stalled"></tbody></table></div></div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="panel" id="p-notes" role="tabpanel" aria-labelledby="t-notes" hidden>
+    <div class="panel-head">
+      <span class="eyebrow">Notes</span>
+      <h2>What I know, what I assumed, and what I'd ask for</h2>
+    </div>
+    <div class="two">
+      <div class="box"><h3>Known, from public sources</h3><ul class="notes">
+        <li class="note good"><span class="pill">Source</span><span>Brands launch by choosing reach tiers and an offer value, and the platform handles matching. <a href="https://storytime.io/brands/how-it-works" target="_blank" rel="noopener">Storytime: how it works</a></span></li>
+        <li class="note good"><span class="pill">Source</span><span>The founders describe 5k-15k-follower creators as the sweet spot, and weight location over follower count. Brands pay a flat monthly subscription with no long-term contract. <a href="https://www.qsrmagazine.com/story/startup-storytime-fixes-the-broken-world-of-local-influencer-marketing/" target="_blank" rel="noopener">QSR Magazine, July 2025</a></span></li>
+        <li class="note good"><span class="pill">Source</span><span>The role covers activation experiments, creator matching, content approval, brand reporting and internal tools. <a href="https://storytime.io/careers/software-engineer-product-growth-entry-level" target="_blank" rel="noopener">Job posting</a></span></li>
+      </ul></div>
+      <div class="box"><h3>Assumed, and how I'd check it</h3><ul class="notes">
+        <li class="note warn"><span class="pill">Assumed</span><span>Acceptance rates and offer anchors per tier. Check against 90 days of offer and acceptance logs.</span></li>
+        <li class="note warn"><span class="pill">Assumed</span><span>The funnel shape and the step names. Check against real signup events, then fix the spec to match what's already tracked.</span></li>
+        <li class="note warn"><span class="pill">Assumed</span><span>What counts as a complete post. Confirm with the community team, who approve posts today.</span></li>
+      </ul></div>
+    </div>
+    <div class="box"><h3>My first 90 days, against your "what success looks like" list</h3><ul class="notes">
+      <li class="note good"><span class="pill">Weeks 1-3</span><span>Sit with partnerships, community and support. Watch five brands set up a campaign. Replace my assumed funnel with the real events and fix the gaps in tracking.</span></li>
+      <li class="note good"><span class="pill">Weeks 4-8</span><span>Ship the first production change on the biggest real drop in brand setup, measured against the step before it. Then iterate on it once with the data.</span></li>
+      <li class="note good"><span class="pill">Weeks 9-12</span><span>Build one internal tool the team asks for twice, likely the stalled-brand queue or post review, and track the hours it saves.</span></li>
+    </ul></div>
+    <div class="box"><h3>Decisions I made, and why</h3><ul class="notes">
+      <li class="note good"><span class="pill">Choice</span><span>Distance outweighs reach in matching. A creator two blocks away can come back and bring friends. One across the river usually visits once.</span></li>
+      <li class="note good"><span class="pill">Choice</span><span>Post check defaults to a 0.85 threshold. A wrongly approved post costs a brand's trust, and a review costs a minute of someone's time.</span></li>
+      <li class="note good"><span class="pill">Choice</span><span>The setup screen forecasts days to first visit, because a brand that sees no visits in week one churns before it sees any value.</span></li>
+    </ul>
+    <p class="src">Concept, models and product decisions by Keshvi Pipwala. The code was written with AI coding tools.</p></div>
+  </section>
+
+  <footer>
+    <span><b>Keshvi Pipwala</b> · Tempe, AZ, open to relocating to New York</span>
+    <span class="row" style="gap:14px"><button class="copyable" type="button" id="mail" title="Copy email">keshvipipwalan@gmail.com</button><a href="https://keshvi-portfolio-ten.vercel.app/" target="_blank" rel="noopener">Portfolio</a><a href="https://github.com/keshvi-pipwala" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/keshvi-pipwala-5a7bb0247/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const fmt=(n,d=0)=>Number(n).toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:d});
+const money=n=>'$'+fmt(n,n<100?2:0);
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R=rng(20260923);
+const pick=a=>a[Math.floor(R()*a.length)];
+const gauss=()=>{let u=0,v=0;while(!u)u=R();while(!v)v=R();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2600)}
+
+/* ---------- synthetic world ---------- */
+const HOODS={"SoHo":[0,0],"Nolita":[0.6,0.5],"West Village":[-1.3,0.7],"Lower East Side":[1.4,0.1],"East Village":[1.1,1.3],"Chelsea":[-1.5,2.1],"Williamsburg":[3.1,0.9],"Greenpoint":[3.3,2.7]};
+const NICHES=["coffee","brunch","bakery","fitness","fashion","nightlife","family","wellness"];
+const FIT={cafe:{coffee:1,bakery:.9,brunch:.7,wellness:.4},restaurant:{brunch:1,nightlife:.8,family:.8,bakery:.4},fitness:{fitness:1,wellness:.9,fashion:.4},retail:{fashion:1,family:.6,wellness:.5}};
+const BIZ_NOUN={cafe:"coffee and bakery",restaurant:"food",fitness:"fitness",retail:"style"};
+const FIRST=["dana","mo","priya","luis","june","theo","ari","nia","sam","kofi","lena","rafa","yuki","bea","omar","ivy","cal","tess","nico","zara","eli","maya","jo","remi"];
+const LAST=["eats","sips","moves","style","bites","runs","finds","daily","local","crumbs","laps","corners"];
+const hoodNames=Object.keys(HOODS);
+const used=new Set();
+const creators=[];
+for(let i=0;i<170;i++){
+  const hood=pick(hoodNames),[hx,hy]=HOODS[hood];
+  let h;do{h='@'+pick(FIRST)+'.'+pick(LAST)+(R()<.4?'.nyc':'')}while(used.has(h));used.add(h);
+  const b=R();const followers=Math.round(b<.45?1000+R()*4000:b<.83?5000+R()*10000:15000+Math.pow(R(),1.6)*45000);
+  const n1=pick(NICHES);const niches=R()<.55?[n1,pick(NICHES.filter(x=>x!==n1))]:[n1];
+  const tier=followers<5000?'nano':followers<15000?'core':'mid';
+  const er=tier==='nano'?3+R()*6:tier==='core'?2.5+R()*4:1.5+R()*3;
+  const past=Math.floor(R()*12);const posted=Math.round(past*(0.35+0.65*R()));
+  const inactive=R()<.14?46+Math.floor(R()*80):Math.floor(R()*40);
+  creators.push({h,hood,x:hx+gauss()*0.75,y:hy+gauss()*0.75,followers,tier,niches,er,past,posted,inactive});
+}
+const TIERS={nano:{name:'Nano',base:.35,anchor:10},core:{name:'Core',base:.28,anchor:20},mid:{name:'Mid',base:.16,anchor:35}};
+const S={biz:'cafe',hood:'Nolita',radius:1.5,tiers:{nano:{on:true,offer:10},core:{on:false,offer:20},mid:{on:true,offer:20}},cap:40};
+const dist=c=>{const[vx,vy]=HOODS[S.hood];return Math.hypot(c.x-vx,c.y-vy)};
+const fitOf=c=>Math.max(0,...c.niches.map(n=>FIT[S.biz][n]||0));
+const rel=c=>c.past>0?c.posted/c.past:.7;
+function pAccept(c){const t=TIERS[c.tier],o=S.tiers[c.tier].offer;const of=Math.min(1.6,Math.max(.1,Math.pow(o/t.anchor,1.1)));return Math.min(.9,t.base*of*Math.exp(-dist(c)/2)*(.5+.5*fitOf(c)))}
+function eligibleWith(radius){return creators.filter(c=>S.tiers[c.tier].on&&dist(c)<=radius&&fitOf(c)>0&&c.inactive<=45)}
+
+/* ---------- launch ---------- */
+const hoodSel=$('#hood');hoodNames.forEach(h=>{const o=document.createElement('option');o.textContent=h;hoodSel.appendChild(o)});
+function syncForm(){$('#biz').value=S.biz;hoodSel.value=S.hood;$('#radius').value=S.radius;$('#cap').value=S.cap;for(const k in S.tiers){$('#tier-'+k).checked=S.tiers[k].on;$('#offer-'+k).value=S.tiers[k].offer}}
+function readForm(){S.biz=$('#biz').value;S.hood=hoodSel.value;S.radius=+$('#radius').value;S.cap=Math.max(1,+$('#cap').value||1);for(const k in S.tiers){S.tiers[k].on=$('#tier-'+k).checked;S.tiers[k].offer=Math.max(0,+$('#offer-'+k).value||0)}}
+function forecast(){
+  const el=eligibleWith(S.radius);
+  let acc=0,posts=0,cost=0;el.forEach(c=>{const p=pAccept(c);acc+=p;posts+=p*rel(c);cost+=p*S.tiers[c.tier].offer});
+  const visits=Math.min(acc,S.cap),scale=acc>0?visits/acc:0;posts*=scale;cost*=scale;
+  const days=visits>0?Math.round(30/visits+2):null;
+  return{el,acc,visits,posts,cost,days,cpp:posts>0?cost/posts:0};
+}
+function renderLaunch(){
+  readForm();$('#radiusV').textContent=S.radius.toFixed(2).replace(/0$/,'')+' km';
+  const f=forecast();
+  $('#kpis').innerHTML=`
+   <div class="kpi hero"><span class="v">${f.days?('~'+f.days+' days'):'None'}</span><span class="k">to first creator visit</span></div>
+   <div class="kpi"><span class="v">${f.el.length}</span><span class="k">creators see the offer</span></div>
+   <div class="kpi"><span class="v">${fmt(f.visits,0)}</span><span class="k">visits in 30 days</span></div>
+   <div class="kpi"><span class="v">${f.posts?money(f.cpp):'-'}</span><span class="k">offer cost per post</span></div>`;
+  const g=[];
+  if(!S.tiers.core.on) g.push(['warn','Check',`Core creators (5k-15k) are left out. That's the reach band Storytime's founders call the sweet spot.`,'Add Core',()=>{S.tiers.core.on=true;syncForm();renderAll()}]);
+  for(const k in S.tiers){const t=S.tiers[k],T=TIERS[k];if(t.on&&t.offer<T.anchor*.75)g.push(['warn','Offer',`$${t.offer} is low for ${T.name} creators. In this model under $${Math.round(T.anchor*.75)} they rarely accept.`,`Set $${T.anchor}`,()=>{S.tiers[k].offer=T.anchor;syncForm();renderAll()}])}
+  if(f.el.length<15){let r=S.radius;while(r<5&&eligibleWith(r).length<15)r+=.25;const n=eligibleWith(r).length;
+    g.push(['crit','Reach',`Only ${f.el.length} creators are in range. At ${r.toFixed(2).replace(/0$/,'')} km, ${n} would see the offer.`,`Use ${r.toFixed(2).replace(/0$/,'')} km`,()=>{S.radius=r;syncForm();renderAll()}])}
+  if(forecast().acc>S.cap)g.push(['warn','Cap',`Your cap of ${S.cap} visits will fill up. About ${Math.round(f.acc-S.cap)} interested creators would be waitlisted.`,null,null]);
+  if(f.days&&f.days>10)g.push(['warn','Speed',`The first visit is ${f.days} days out. Brands that see nothing in week one are the ones most likely to leave.`,null,null]);
+  if(!g.length)g.push(['good','Ready','This setup should produce a first visit within the first week.',null,null]);
+  const ul=$('#guards');ul.innerHTML='';
+  g.forEach(([cls,pill,txt,btn,fn])=>{const li=document.createElement('li');li.className='note '+cls;li.innerHTML=`<span class="pill">${pill}</span><span>${txt} </span>`;if(btn){const b=document.createElement('button');b.type='button';b.textContent=btn;b.onclick=fn;li.lastChild.appendChild(b)}ul.appendChild(li)});
+  drawMap(f.el);
+}
+function drawMap(el){
+  const[vx,vy]=HOODS[S.hood];const half=Math.max(2.2,S.radius*1.35);const W=560,H=300;const sc=Math.min(W,H*1.0)/(2*half);
+  const px=x=>W/2+(x-vx)*sc, py=y=>H/2-(y-vy)*sc;
+  const eset=new Set(el);let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${el.length} creators inside a ${S.radius} km radius">`;
+  const step=sc;for(let x=W/2%step;x<W;x+=step)s+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="var(--line)" stroke-width="1"/>`;
+  for(let y=H/2%step;y<H;y+=step)s+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="var(--line)" stroke-width="1"/>`;
+  s+=`<circle cx="${W/2}" cy="${H/2}" r="${S.radius*sc}" fill="var(--accent)" fill-opacity=".07" stroke="var(--accent)" stroke-dasharray="5 4" stroke-width="1.5"/>`;
+  creators.forEach(c=>{const X=px(c.x),Y=py(c.y);if(X<-5||X>W+5||Y<-5||Y>H+5)return;const on=eset.has(c);
+    s+=`<circle cx="${X.toFixed(1)}" cy="${Y.toFixed(1)}" r="${on?4.5:3.5}" fill="${on?'var(--dot)':'var(--dot-off)'}" stroke="var(--sunk)" stroke-width="1.5"><title>${c.h} · ${fmt(c.followers)} followers · ${dist(c).toFixed(1)} km${on?'':' · not included'}</title></circle>`});
+  s+=`<rect x="${W/2-7}" y="${H/2-7}" width="14" height="14" rx="2" fill="var(--sign)" stroke="var(--ink)" stroke-width="1.5"/>`;
+  s+=`<text x="${W/2+12}" y="${H/2-10}" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--body)">${S.hood}</text></svg>`;
+  $('#map').innerHTML=s;
+}
+
+/* ---------- brief intake ---------- */
+const BIZ_LABEL={cafe:'Café',restaurant:'Restaurant',fitness:'Fitness studio',retail:'Retail shop'};
+const EXAMPLES=["We're a café in Nolita and weekday mornings are slow. We'd love local coffee creators within about a mile. We can do $10 off a visit, up to 30 visits a month.",
+"Pilates studio in Williamsburg. Want more people in Saturday morning classes. Happy to give $25 per visit to nearby creators.",
+"Vintage shop on the Lower East Side, weekend afternoons are quiet. Bigger creators are fine too. $30 off, max 12 visits a month, within 8 blocks."];
+let exI=0;S.window='';
+const HOOD_ALIAS=[["lower east side","Lower East Side"],["\\bles\\b","Lower East Side"],["west village","West Village"],["east village","East Village"],["soho","SoHo"],["nolita","Nolita"],["chelsea","Chelsea"],["williamsburg","Williamsburg"],["greenpoint","Greenpoint"]];
+function parseBrief(t){
+  const s=t.toLowerCase(),F=[];const add=(key,label,value,src,conf,apply)=>F.push({key,label,value,src,conf,apply});
+  let biz=null,bm=null;for(const[k,re]of[['cafe',/(caf[eé]|coffee|espresso|bakery)/],['restaurant',/(restaurant|bistro|taco|pizza|kitchen|diner|ramen)/],['fitness',/(gym|pilates|yoga|fitness|barre|cycling)/],['retail',/(boutique|shop|store|vintage)/]]){const m=s.match(re);if(m){biz=k;bm=m[0];break}}
+  add('biz','Business type',BIZ_LABEL[biz||S.biz],bm||'not stated',biz?.95:.4,()=>{if(biz)S.biz=biz});
+  let hood=null,hm=null;for(const[re,h]of HOOD_ALIAS){const m=s.match(new RegExp(re));if(m){hood=h;hm=m[0];break}}
+  add('hood','Location',hood||S.hood,hm||'not stated',hood?.95:.4,()=>{if(hood)S.hood=hood});
+  let r=null,rm=null,rc=.4;const m1=s.match(/(\d+(?:\.\d+)?|a|one|half a)\s*(miles?|mi\b|km|kilomet\w+|blocks?)/);
+  if(m1){const n=m1[1]==='half a'?.5:(m1[1]==='a'||m1[1]==='one')?1:+m1[1];const u=m1[2];r=n*(u.startsWith('mi')?1.61:u.startsWith('block')?.08:1);rm=m1[0];rc=.95}
+  else{const m2=s.match(/(walking distance|nearby|close by|around here|local)/);if(m2){r=1;rm=m2[0];rc=.6}}
+  if(r!==null)r=Math.min(5,Math.max(.5,Math.round(r*4)/4));
+  add('radius','Creator radius',(r??S.radius)+' km',rm||'not stated',rc,()=>{if(r!==null)S.radius=r});
+  const mo=s.match(/\$\s?(\d+)/);const o=mo?+mo[1]:null;
+  add('offer','Core offer',o?('$'+o):('$'+S.tiers.core.offer),mo?mo[0]:'not stated',o?.95:.4,()=>{if(o)S.tiers.core.offer=o});
+  add('offers','Nano / Mid offers',o?(`$${Math.max(5,Math.round(o*.6))} / $${Math.round(o*1.7)}`):'unchanged','inferred from core offer',o?.7:.4,()=>{if(o){S.tiers.nano.offer=Math.max(5,Math.round(o*.6));S.tiers.mid.offer=Math.round(o*1.7)}});
+  const mc=s.match(/(?:max|up to|at most|no more than)?\s*(\d+)\s*(visits|redemptions|creators|people)(\s*(a|per)\s*month)?/);
+  add('cap','Monthly visit cap',mc?mc[1]:String(S.cap),mc?mc[0].trim():'not stated',mc?(mc[3]?.95:.75):.4,()=>{if(mc)S.cap=+mc[1]});
+  const big=s.match(/(bigger|big|large|macro)\s*(creators|influencers|accounts)/);
+  add('tiers','Reach tiers',big?'Nano, Core, Mid':'Nano, Core',big?big[0]:'not stated, using the 5k-15k sweet spot',big?.9:.6,()=>{S.tiers.nano.on=true;S.tiers.core.on=true;S.tiers.mid.on=!!big});
+  const mw=s.match(/(weekday|weekend|monday|tuesday|wednesday|thursday|friday|saturday|sunday)s?\s*(morning|lunch|afternoon|evening|night)s?/);
+  add('window','Campaign window',mw?(w=>w[0].toUpperCase()+w.slice(1))(mw[0].replace(/s\b/g,'').replace(/(\w+) (\w+)/,'$1 $2s')):'Any time',mw?mw[0]:'not stated',mw?.9:.5,()=>{S.window=mw?(w=>w[0].toUpperCase()+w.slice(1))(mw[0].replace(/s\b/g,'')):''});
+  return F;
+}
+const NEEDS={biz:['#biz'],hood:['#hood'],radius:['#radius'],offer:['#offer-core'],offers:['#offer-nano','#offer-mid'],cap:['#cap'],tiers:['#tier-nano','#tier-core','#tier-mid']};
+function runBrief(){
+  const F=parseBrief($('#brief').value);F.forEach(f=>f.apply());syncForm();
+  document.querySelectorAll('.needs').forEach(e=>e.classList.remove('needs'));
+  F.forEach(f=>{if(f.conf<.85&&NEEDS[f.key])NEEDS[f.key].forEach(id=>{const el=$(id);(el.closest('.tier')||el).classList.add('needs')})});
+  const n=F.filter(f=>f.conf<.85).length;
+  $('#parsed').innerHTML='<div class="pf hd"><span>Field</span><span>Filled with</span><span class="src">From their words</span><span class="c">Confidence</span></div>'+F.map(f=>`<div class="pf"><span>${f.label}</span><span><b>${f.value}</b></span><span class="src" title="${f.src}">${f.src}</span><span class="c">${f.conf.toFixed(2)} ${f.conf>=.85?'<span class="st ok">Filled</span>':'<span class="st rv">Confirm</span>'}</span></div>`).join('')+`<p class="src"><b>${F.length-n} of ${F.length}</b> fields filled with confidence. ${n?`${n} outlined below for the owner to confirm.`:'Nothing to confirm.'}</p>`;
+  renderAll();
+}
+
+/* ---------- match ---------- */
+let lastRanked=[];const WDEF={dist:35,fit:25,rel:20,reach:10,eng:10};const W={...WDEF};
+const WLBL={dist:'Distance',fit:'Audience fit',rel:'Follow-through',reach:'Reach band',eng:'Engagement'};
+function buildWeights(){const box=$('#weights');box.innerHTML='';for(const k in W){const d=document.createElement('div');d.className='wt';d.innerHTML=`<label for="w-${k}">${WLBL[k]}</label><input type="range" id="w-${k}" min="0" max="60" step="5" value="${W[k]}"><span class="num mono" id="wv-${k}">${W[k]}</span>`;box.appendChild(d);d.querySelector('input').addEventListener('input',e=>{W[k]=+e.target.value;$('#wv-'+k).textContent=W[k];renderMatch()})}}
+const reachScore=f=>f>=5000&&f<=15000?1:f<5000?.5+.5*(f-1000)/4000:Math.max(.3,1-(f-15000)/60000);
+function scoreOf(c){const tot=Object.values(W).reduce((a,b)=>a+b,0)||1;const d=dist(c);
+  const parts={dist:Math.max(0,1-d/Math.max(S.radius,.5)),fit:fitOf(c),rel:rel(c),reach:reachScore(c.followers),eng:Math.min(1,c.er/6)};
+  let s=0;for(const k in W)s+=W[k]*parts[k];return{score:100*s/tot,parts}}
+function renderMatch(){
+  const pool=creators.filter(c=>S.tiers[c.tier].on&&dist(c)<=S.radius);
+  const held=[],ok=[];
+  pool.forEach(c=>{if(c.inactive>45)held.push([c,`Inactive for ${c.inactive} days`]);else if(fitOf(c)===0)held.push([c,`Posts about ${c.niches.join(' and ')}, not ${BIZ_NOUN[S.biz]}`]);else if(c.past>=3&&rel(c)<.5)held.push([c,`Posted after ${c.posted} of ${c.past} past visits`]);else ok.push(c)});
+  const ranked=ok.map(c=>({c,...scoreOf(c)})).sort((a,b)=>b.score-a.score);lastRanked=ranked;if(!$('#drafts').hidden)$('#drafts').hidden=true;
+  $('#matchTitle').textContent=`Top creators near ${S.hood}`;
+  $('#matchKpis').innerHTML=`<div class="kpi"><span class="v">${ranked.length}</span><span class="k">ranked</span></div><div class="kpi"><span class="v">${held.length}</span><span class="k">held back</span></div><div class="kpi"><span class="v">${ranked.length?Math.round(ranked.slice(0,10).reduce((a,r)=>a+dist(r.c),0)/Math.min(10,ranked.length)*10)/10:0} km</span><span class="k">avg. distance, top 10</span></div>`;
+  $('#ranked').innerHTML=ranked.slice(0,10).map((r,i)=>{const c=r.c,d=dist(c);const chips=[];
+    chips.push(`<span class="chip ${d<.8?'hi':''}">${d.toFixed(1)} km away</span>`);
+    chips.push(`<span class="chip ${r.parts.fit>=.9?'hi':''}">${c.niches.join(' · ')}</span>`);
+    chips.push(`<span class="chip">${fmt(c.followers)} followers</span>`);
+    chips.push(c.past?`<span class="chip ${rel(c)>=.8?'hi':''}">posted ${c.posted}/${c.past} visits</span>`:`<span class="chip new">new to the platform</span>`);
+    chips.push(`<span class="chip">${c.er.toFixed(1)}% engagement</span>`);
+    return `<div class="cr"><span class="rk">${i+1}</span><div class="who"><span class="h">${c.h} <span style="color:var(--muted);font-weight:400">· ${c.hood}</span></span><div class="chips">${chips.join('')}</div></div><div class="score"><b class="num">${Math.round(r.score)}</b><div class="bar"><i style="width:${r.score}%"></i></div></div></div>`}).join('')||'<p class="src">No creators match. Widen the radius or add a tier in Launch.</p>';
+  $('#held').innerHTML=held.slice(0,6).map(([c,why])=>`<div><span>${c.h}</span><span>${why}</span></div>`).join('')+(held.length>6?`<p class="src">and ${held.length-6} more</p>`:'')||'<p class="src">Nobody held back.</p>';
+}
+
+/* ---------- post check ---------- */
+const PR=rng(7);const posts=[];
+const reasonsTxt={brand:'Brand not tagged',loc:'No location tag',disc:'No paid-post disclosure',late:'Posted late',mention:'Caption doesn’t name the business',wrong:'Tags another venue'};
+for(let i=0;i<72;i++){
+  const f={brand:PR()<.92,loc:PR()<.82,disc:PR()<.88,days:Math.floor(Math.pow(PR(),2.6)*14),mention:PR()<.78,wrong:PR()<.05};
+  f.within=f.days<=7;
+  let truth=f.brand&&f.disc&&f.within&&!f.wrong&&(f.loc||f.mention);let judged=false;
+  if(PR()<.06){truth=!truth;judged=true}
+  const z=-7.1+3.0*f.brand+3.5*f.disc+2.6*f.within+1.0*f.loc+0.8*f.mention-4*f.wrong-1.5*(!f.loc&&!f.mention)+(PR()-.5)*.6;
+  const conf=1/(1+Math.exp(-z));
+  const why=[];if(!f.disc)why.push(reasonsTxt.disc);if(!f.brand)why.push(reasonsTxt.brand);if(!f.within)why.push(`Posted ${f.days} days after visit`);if(f.wrong)why.push(reasonsTxt.wrong);if(!f.loc)why.push(reasonsTxt.loc);if(!f.mention)why.push(reasonsTxt.mention);
+  if(judged)why.push(truth?'Reviewer approved anyway':'Reviewer: photo taken elsewhere');
+  posts.push({h:creators[(i*7)%creators.length].h,f,truth,conf,why,judged});
+}
+function atThr(t){const auto=posts.filter(p=>p.conf>=t);const good=auto.filter(p=>p.truth).length;return{auto,rate:auto.length/posts.length,prec:auto.length?good/auto.length:1,wrong:auto.filter(p=>!p.truth)}}
+function renderCheck(){
+  const t=+$('#thr').value;$('#thrV').textContent=t.toFixed(2);const r=atThr(t);const q=posts.filter(p=>p.conf<t).sort((a,b)=>b.conf-a.conf);
+  $('#checkKpis').innerHTML=`<div class="kpi hero"><span class="v">${fmt(r.prec*100,1)}%</span><span class="k">precision on auto-approved</span></div><div class="kpi"><span class="v">${fmt(r.rate*100,0)}%</span><span class="k">auto-approved (${r.auto.length} of ${posts.length})</span></div><div class="kpi"><span class="v">${q.length}</span><span class="k">sent to a person</span></div>`;
+  $('#queueTitle').textContent=`Review queue at ${t.toFixed(2)}`;$('#queueSub').textContent=`${q.length} posts, highest score first`;
+  $('#queue').innerHTML=q.map(p=>`<tr><td class="mono" style="font-size:12.5px">${p.h}</td><td>${p.why.join('; ')||'Low overall score'}</td><td class="n mono">${p.conf.toFixed(2)}</td><td>${p.truth?'<span class="st ok">Approve</span>':'<span class="st no">Reject</span>'}</td></tr>`).join('');
+  $('#wrongAuto').innerHTML=r.wrong.length?`<b>${r.wrong.length} post${r.wrong.length>1?'s':''} auto-approved that a person rejected:</b> ${r.wrong.map(p=>p.h+' ('+(p.why.join('; ')||'judgment call')+')').join(', ')}. Raise the threshold to catch ${r.wrong.length>1?'them':'it'}.`:'<b>No wrong auto-approvals at this threshold.</b> Lower it and watch where the first mistake gets through.';
+  drawTradeoff(t);
+}
+function drawTradeoff(t){
+  const W=520,H=190,m={l:36,r:14,t:12,b:26};const xs=[];for(let v=50;v<=99;v++)xs.push(v/100);
+  const data=xs.map(x=>{const r=atThr(x);return{x,p:r.prec,a:r.rate}});
+  const X=x=>m.l+(x-.5)/(.49)*(W-m.l-m.r),Y=v=>m.t+(1-v)*(H-m.t-m.b);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Precision and share auto-approved by threshold">`;
+  [0,.25,.5,.75,1].forEach(v=>{s+=`<line class="grid" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end">${v*100}%</text>`});
+  [.5,.6,.7,.8,.9,.99].forEach(v=>s+=`<text x="${X(v)}" y="${H-8}" text-anchor="middle">${v.toFixed(2)}</text>`);
+  const line=k=>data.map((d,i)=>(i?'L':'M')+X(d.x).toFixed(1)+' '+Y(d[k]).toFixed(1)).join(' ');
+  s+=`<path d="${line('a')}" fill="none" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 3"/><path d="${line('p')}" fill="none" stroke="var(--s1)" stroke-width="2"/>`;
+  const cur=atThr(t);s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${m.t}" y2="${H-m.b}" stroke="var(--ink)" stroke-width="1"/>`;
+  s+=`<circle cx="${X(t)}" cy="${Y(cur.prec)}" r="4.5" fill="var(--s1)" stroke="var(--surface)" stroke-width="2"/><circle cx="${X(t)}" cy="${Y(cur.rate)}" r="4.5" fill="var(--s2)" stroke="var(--surface)" stroke-width="2"/>`;
+  s+=`<rect x="${m.l}" y="0" width="${W-m.l-m.r}" height="${H}" fill="transparent" id="toHit"/></svg><div class="tip" id="toTip"></div>`;
+  const box=$('#tradeoff');box.innerHTML=s;const svg=box.querySelector('svg'),tip=$('#toTip');
+  svg.addEventListener('mousemove',e=>{const b=svg.getBoundingClientRect();const x=(e.clientX-b.left)/b.width*W;const v=Math.min(.99,Math.max(.5,.5+(x-m.l)/(W-m.l-m.r)*.49));const r=atThr(Math.round(v*100)/100);tip.textContent=`At ${(Math.round(v*100)/100).toFixed(2)}: ${fmt(r.prec*100,1)}% precision, ${fmt(r.rate*100,0)}% auto`;tip.style.left=(e.clientX-b.left)+'px';tip.style.top=(Y(r.prec)/H*b.height)+'px';tip.classList.add('on')});
+  svg.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+  svg.addEventListener('click',e=>{const b=svg.getBoundingClientRect();const x=(e.clientX-b.left)/b.width*W;const v=Math.min(.99,Math.max(.5,.5+(x-m.l)/(W-m.l-m.r)*.49));$('#thr').value=(Math.round(v*100)/100);renderCheck()});
+}
+
+/* ---------- report ---------- */
+const weeks=[3,6,9,8,14,12,15,17],postsW=[2,5,8,7,12,10,13,15];
+const topC=[['@june.crumbs.nyc',8400,9,9,21000],['@kofi.sips',11200,8,7,26500],['@priya.local',4300,7,7,9800],['@theo.corners.nyc',13900,6,5,24100],['@bea.daily',6100,6,6,12300],['@remi.finds',2700,5,4,5200]];
+function renderReport(){
+  const v=weeks.reduce((a,b)=>a+b,0),p=postsW.reduce((a,b)=>a+b,0),cost=v*17.5;
+  $('#repKpis').innerHTML=`<div class="kpi hero"><span class="v">${v}</span><span class="k">creator visits in 8 weeks</span></div><div class="kpi"><span class="v">${p}</span><span class="k">posts live</span></div><div class="kpi"><span class="v">${Math.round(p/v*100)}%</span><span class="k">of visits turned into a post</span></div><div class="kpi"><span class="v">${money(cost/p)}</span><span class="k">offer cost per post</span></div><div class="kpi"><span class="v">41</span><span class="k">different creators</span></div>`;
+  const W=520,H=210,m={l:30,r:8,t:14,b:26},mx=20;const bw=(W-m.l-m.r)/weeks.length;
+  const Y=v=>m.t+(1-v/mx)*(H-m.t-m.b);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Weekly visits, 3 in week 1 rising to 17 in week 8">`;
+  [0,5,10,15,20].forEach(v=>s+=`<line class="grid" x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`);
+  weeks.forEach((v,i)=>{const x=m.l+i*bw+bw*.18,w=bw*.64,y=Y(v),h=Y(0)-y;const last=i===weeks.length-1;
+    s+=`<path d="M${x} ${Y(0)}V${y+4}Q${x} ${y} ${x+4} ${y}H${x+w-4}Q${x+w} ${y} ${x+w} ${y+4}V${Y(0)}Z" fill="var(--accent)" fill-opacity="${last?1:.55}" data-i="${i}"/>`;
+    s+=`<text x="${x+w/2}" y="${H-8}" text-anchor="middle">W${i+1}</text>`;
+    if(last)s+=`<text x="${x+w/2}" y="${y-5}" text-anchor="middle" style="fill:var(--ink);font-weight:700">${v}</text>`;
+    s+=`<rect x="${m.l+i*bw}" y="${m.t}" width="${bw}" height="${H-m.t-m.b}" fill="transparent" data-h="${i}"/>`});
+  s+=`<line class="axis" x1="${m.l}" x2="${W-m.r}" y1="${Y(0)}" y2="${Y(0)}"/></svg><div class="tip" id="wkTip"></div>`;
+  const box=$('#weekly');box.innerHTML=s;const svg=box.querySelector('svg'),tip=$('#wkTip');
+  svg.querySelectorAll('[data-h]').forEach(r=>{r.addEventListener('mouseenter',()=>{const i=+r.dataset.h,b=svg.getBoundingClientRect();tip.textContent=`Week ${i+1}: ${weeks[i]} visits, ${postsW[i]} posts`;tip.style.left=((m.l+i*bw+bw/2)/W*b.width)+'px';tip.style.top=(Y(weeks[i])/H*b.height)+'px';tip.classList.add('on')});r.addEventListener('mouseleave',()=>tip.classList.remove('on'))});
+  $('#topC').innerHTML=topC.map(r=>`<tr><td class="mono" style="font-size:12.5px">${r[0]}</td><td class="n">${fmt(r[1])}</td><td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${fmt(r[4])}</td></tr>`).join('');
+  $('#repNext').innerHTML=[
+   ['good','Working',`Visits grew from ${weeks[0]} in week 1 to ${weeks[7]} in week 8. The top six creators brought in ${topC.reduce((a,r)=>a+r[2],0)} of the ${v} visits.`],
+   ['warn','Change',`Week 4 dipped to ${weeks[3]} visits. Before raising the offer, invite the next 10 highest-ranked creators from Match.`],
+   ['warn','Change',`${v-p} visits never became a post. Send the creator a reminder 48 hours after the visit, with the tags already filled in.`]
+  ].map(([c,pl,t])=>`<li class="note ${c}"><span class="pill">${pl}</span><span>${t}</span></li>`).join('');
+}
+
+/* ---------- growth ---------- */
+const FUN=[['brand_signup_started',200],['brand_profile_completed',168],['offer_configured',121],['campaign_launched',109],['first_creator_accepted',91],['first_visit_redeemed',74],['first_post_live',63]];
+const SPEC=[['brand_signup_started','Brand opens signup','source, business_type, referrer'],['brand_profile_completed','Photos, hours and address saved','business_type, neighborhood, minutes_to_complete'],['offer_configured','Tiers and offer values saved','tiers[], offer_by_tier, used_default_offer'],['campaign_launched','Brand taps launch','forecast_days_to_first_visit, radius_km, cap'],['first_creator_accepted','First creator claims the offer','creator_tier, distance_km, hours_since_launch'],['first_visit_redeemed','Voucher validated at the register','hours_since_launch, offer_value'],['first_post_live','Post passes post check','auto_approved, hours_after_visit, post_check_score']];
+const XPS=[
+ {t:'Pre-filled offers by tier',step:'offer_configured',h:'Brands stall picking a price. A suggested offer per tier, shown with its forecast, gets more of them to launch.',m:'profile_completed to campaign_launched',g:'Offer cost per post stays within 10%',d:'Ship if launch rate rises at least 5 points after 2 weeks per arm'},
+ {t:'72-hour rescue nudge',step:'first_creator_accepted',h:'A campaign with no accepts after 72 hours is fixable. Prompting the brand to add Core or raise the offer by $5 saves some of them.',m:'Share of launched campaigns with a first visit in 14 days',g:'Brand unsubscribes from nudges',d:'Keep if first-visit rate rises and nudge opt-outs stay under 5%'},
+ {t:'Nearest creators first',step:'first_visit_redeemed',h:'Releasing the offer to the 20 closest creators before widening gets a faster first visit than sending it to everyone at once.',m:'Median hours from launch to first visit',g:'Total visits in 30 days',d:'Ship if median time drops and 30-day visits don’t fall'}];
+const STALLED=[['Pier 9 Pilates','offer_configured',6,'Suggest $20 for Core. Their draft offer is $8.'],['Lucky Fern Bakery','first_creator_accepted',4,'Widen radius from 0.75 to 1.5 km. Only 9 creators in range.'],['Orchard St. Tacos','brand_profile_completed',9,'Photos missing. Offer a 10-minute setup call.'],['Ridge Vintage','first_post_live',5,'3 visits, no posts. Send creators the tag reminder.'],['Seventh Ave Juice','campaign_launched',3,'Launched Friday with a cap of 2. Suggest raising it to 20.']];
+function renderGrowth(){
+  const top=FUN[0][1];let worst=1,wi=0;FUN.forEach((r,i)=>{if(i){const c=r[1]/FUN[i-1][1];if(c<worst){worst=c;wi=i}}});
+  $('#funnel').innerHTML=FUN.map((r,i)=>`<div class="fr ${i===wi?'drop':''}"><span class="ev">${r[0]}</span><div class="track" title="${r[1]} brands"><i style="width:${r[1]/top*100}%"></i></div><span class="pct">${r[1]} · ${i?Math.round(r[1]/FUN[i-1][1]*100)+'% of prev':'100%'}</span></div>`).join('')+`<p class="src">Biggest drop: <span class="mono">${FUN[wi-1][0]}</span> to <span class="mono">${FUN[wi][0]}</span>, where ${Math.round((1-worst)*100)}% of brands stop. That's pricing the offer, which is why experiment 1 comes first.</p>`;
+  $('#xps').innerHTML=XPS.map((x,i)=>`<div class="xp"><span class="eyebrow">Experiment ${i+1} · <span class="mono" style="text-transform:none;letter-spacing:0">${x.step}</span></span><h3>${x.t}</h3><p>${x.h}</p><dl><dt>Metric</dt><dd>${x.m}</dd><dt>Guardrail</dt><dd>${x.g}</dd><dt>Decision</dt><dd>${x.d}</dd></dl></div>`).join('');
+  $('#spec').innerHTML=SPEC.map(r=>`<tr><td class="mono" style="font-size:12.5px;white-space:nowrap">${r[0]}</td><td>${r[1]}</td><td class="mono" style="font-size:12px;color:var(--ink2)">${r[2]}</td></tr>`).join('');
+  $('#stalled').innerHTML=STALLED.map(r=>`<tr><td><b>${r[0]}</b></td><td class="mono" style="font-size:12px">${r[1]}</td><td class="n">${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+}
+
+/* ---------- wiring ---------- */
+function renderAll(){renderLaunch();renderMatch()}
+['biz','hood','radius','cap','tier-nano','tier-core','tier-mid','offer-nano','offer-core','offer-mid'].forEach(id=>$('#'+id).addEventListener('input',renderAll));
+$('#brief').value=EXAMPLES[0];
+$('#parse').onclick=runBrief;
+$('#ex').onclick=()=>{exI=(exI+1)%EXAMPLES.length;$('#brief').value=EXAMPLES[exI];runBrief()};
+document.querySelectorAll('#biz,#hood,#radius,#cap,#offer-nano,#offer-core,#offer-mid,#tier-nano,#tier-core,#tier-mid').forEach(el=>el.addEventListener('input',()=>{(el.closest('.tier')||el).classList.remove('needs')}));
+$('#resetW').onclick=()=>{Object.assign(W,WDEF);buildWeights();renderMatch()};
+$('#invite').onclick=()=>{const box=$('#drafts');const top=lastRanked.slice(0,3);if(!top.length){toast('No creators to invite yet. Widen the radius in Launch.');return}
+  const venue=S.biz==='cafe'&&S.hood==='Nolita'?'Halfmoon Coffee':({cafe:'a café',restaurant:'a restaurant',fitness:'a fitness studio',retail:'a shop'})[S.biz]+' in '+S.hood;
+  box.innerHTML='<div class="row" style="justify-content:space-between"><b>Drafts for the partnerships team</b><span class="eyebrow">Nothing is sent from this page</span></div>'+top.map((r,i)=>{const c=r.c,d=dist(c),o=S.tiers[c.tier].offer,name=c.h.slice(1).split('.')[0];const nm=name[0].toUpperCase()+name.slice(1);
+    const bestN=c.niches.slice().sort((x,y)=>(FIT[S.biz][y]||0)-(FIT[S.biz][x]||0))[0];const hook=r.parts.fit>=.9?`Your ${bestN} posts reach exactly the people they want`:`Your audience overlaps with theirs`;
+    const track=!c.past?` You're new here, so this is an easy first campaign.`:(c.past>=2&&c.posted/c.past>=.8)?` You've posted after ${c.posted} of your last ${c.past} visits, and brands notice that.`:'';
+    const txt=`Hi ${nm}, ${venue} is ${d.toFixed(1)} km from you and is offering $${o} off a visit${S.window?', best on '+S.window.replace(/s\b/g,'')+'s':''}. ${hook}.${track} Want me to hold a spot for you this week?`;
+    return `<div class="draft"><div class="to"><span class="mono">To ${c.h}</span><button class="btn ghost" type="button" data-copy="${i}" style="padding:4px 10px;font-size:12.5px">Copy</button></div><p id="dtxt${i}">${txt}</p></div>`}).join('');
+  box.hidden=false;box.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{const t=$('#dtxt'+b.dataset.copy).textContent;try{navigator.clipboard.writeText(t).then(()=>toast('Draft copied'),()=>toast('Select the text to copy it'))}catch(e){toast('Select the text to copy it')}})};
+$('#thr').addEventListener('input',renderCheck);
+$('#mail').onclick=()=>{const t='keshvipipwalan@gmail.com';try{navigator.clipboard.writeText(t).then(()=>toast('Email copied'),()=>toast(t))}catch(e){toast(t)}};
+const tabs=[...document.querySelectorAll('.tab')];
+function show(id){tabs.forEach(t=>{const on=t.dataset.tab===id;t.setAttribute('aria-selected',on);$('#p-'+t.dataset.tab).hidden=!on});try{history.replaceState(null,'','#'+id)}catch(e){}}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>show(t.dataset.tab));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();show(n.dataset.tab)}})});
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.go);$('.tabs').scrollIntoView({behavior:'smooth',block:'start'})}));
+$('#thr').value=.85;syncForm();buildWeights();runBrief();renderCheck();renderReport();renderGrowth();
+const h=(location.hash||'').slice(1);if(['launch','match','check','report','growth','notes'].includes(h))show(h);
+})();
+</script>
+</body></html>
