@@ -515,7 +515,7 @@ function parseBrief(t){
   add('radius','Creator radius',(r??S.radius)+' km',rm||'not stated',rc,()=>{if(r!==null)S.radius=r});
   const mo=s.match(/\$\s?(\d+)/);const o=mo?+mo[1]:null;
   add('offer','Core offer',o?('$'+o):('$'+S.tiers.core.offer),mo?mo[0]:'not stated',o?.95:.4,()=>{if(o)S.tiers.core.offer=o});
-  add('offers','Nano / Mid offers',o?(`$${Math.max(5,Math.round(o*.6))} / $${Math.round(o*1.7)}`):'unchanged','inferred from core offer',o?.7:.4,()=>{if(o){S.tiers.nano.offer=Math.max(5,Math.round(o*.6));S.tiers.mid.offer=Math.round(o*1.7)}});
+  add('offers','Nano / Mid offers',o?(`$${Math.max(8,Math.round(o*.5))} / $${Math.max(27,Math.round(o*1.75))}`):'unchanged','inferred from core offer',o?.7:.4,()=>{if(o){S.tiers.nano.offer=Math.max(8,Math.round(o*.5));S.tiers.mid.offer=Math.max(27,Math.round(o*1.75))}});
   const mc=s.match(/(?:max|up to|at most|no more than)?\s*(\d+)\s*(visits|redemptions|creators|people)(\s*(a|per)\s*month)?/);
   add('cap','Monthly visit cap',mc?mc[1]:String(S.cap),mc?mc[0].trim():'not stated',mc?(mc[3]?.95:.75):.4,()=>{if(mc)S.cap=+mc[1]});
   const big=s.match(/(bigger|big|large|macro)\s*(creators|influencers|accounts)/);
