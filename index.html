@@ -229,7 +229,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display
       <button class="plate" data-go="report" type="button"><span class="eyebrow">04 · Brands</span><b>Brand report</b><small>What a café owner needs to know about a campaign, on one page.</small><span class="jd">"help brands understand campaign performance"</span></button>
       <button class="plate" data-go="growth" type="button"><span class="eyebrow">05 · Team</span><b>Growth plan</b><small>Event spec, activation funnel, three experiments and a stalled-brand queue.</small><span class="jd">"improve activation, conversion"</span></button>
     </div>
-    <p class="synthetic"><b>Note</b><span>All brands, creators and numbers here are synthetic. The models are my assumptions, written out under each tool. Four product facts come from public sources and are cited in <button class="note-link copyable" data-go="notes" type="button" style="font-family:inherit;font-size:inherit">Notes</button>. This is an independent concept and isn't affiliated with Storytime.</span></p>
+    <p class="synthetic"><b>Note</b><span>All brands, creators and numbers here are synthetic. The models are my assumptions, written out under each tool. Five product facts come from public sources and are cited in <button class="note-link copyable" data-go="notes" type="button" style="font-family:inherit;font-size:inherit">Notes</button>. This is an independent concept and isn't affiliated with Storytime.</span></p>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Tools">
@@ -328,7 +328,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display
         <div class="chart" id="tradeoff"></div>
         <div class="legend"><span><svg width="22" height="10" aria-hidden="true"><line x1="0" y1="5" x2="22" y2="5" stroke="var(--s1)" stroke-width="2"/></svg>Precision on auto-approved posts</span><span><svg width="22" height="10" aria-hidden="true"><line x1="0" y1="5" x2="22" y2="5" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 3"/></svg>Share auto-approved</span></div>
         <details><summary>What the checker looks at</summary><ul>
-          <li>Brand account tagged, location tagged, caption names the business, paid-post disclosure present, posted within 7 days of the visit, and no other venue tagged.</li>
+          <li>Brand account tagged, location tagged, caption names the business, paid-post disclosure present, posted within 48 hours of the visit (Storytime's posting window), and no other venue tagged.</li>
           <li>The score is a weighted sum passed through a logistic curve. Disclosure and timing carry the most weight because they're the hardest to fix after the fact.</li>
           <li>Labels include a few judgment calls a rule can't see, like a photo taken somewhere else. Those are why precision drops as the threshold goes down.</li>
           <li>In production I'd add an LLM pass on the caption and image for the long tail, with the rule score as the fallback if the model call fails.</li>
@@ -383,6 +383,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display
         <li class="note good"><span class="pill">Source</span><span>Brands launch by choosing reach tiers and an offer value, and the platform handles matching. <a href="https://storytime.io/brands/how-it-works" target="_blank" rel="noopener">Storytime: how it works</a></span></li>
         <li class="note good"><span class="pill">Source</span><span>The founders describe 5k-15k-follower creators as the sweet spot, and weight location over follower count. Brands pay a flat monthly subscription with no long-term contract. <a href="https://www.qsrmagazine.com/story/startup-storytime-fixes-the-broken-world-of-local-influencer-marketing/" target="_blank" rel="noopener">QSR Magazine, July 2025</a></span></li>
         <li class="note good"><span class="pill">Source</span><span>The role covers activation experiments, creator matching, content approval, brand reporting and internal tools. <a href="https://storytime.io/careers/software-engineer-product-growth-entry-level" target="_blank" rel="noopener">Job posting</a></span></li>
+        <li class="note good"><span class="pill">Source</span><span>Creators post a tagged story within 48 hours of a visit, and Storytime now covers NYC, parts of New Jersey and Miami. <a href="https://www.fox5ny.com/news/app-links-nyc-businesses-micro-influencers-discounts-promotion" target="_blank" rel="noopener">FOX 5 New York, May 2026</a></span></li>
       </ul></div>
       <div class="box"><h3>Assumed, and how I'd check it</h3><ul class="notes">
         <li class="note warn"><span class="pill">Assumed</span><span>Acceptance rates and offer anchors per tier. Check against 90 days of offer and acceptance logs.</span></li>
@@ -563,13 +564,13 @@ function renderMatch(){
 const PR=rng(7);const posts=[];
 const reasonsTxt={brand:'Brand not tagged',loc:'No location tag',disc:'No paid-post disclosure',late:'Posted late',mention:'Caption doesn’t name the business',wrong:'Tags another venue'};
 for(let i=0;i<72;i++){
-  const f={brand:PR()<.92,loc:PR()<.82,disc:PR()<.88,days:Math.floor(Math.pow(PR(),2.6)*14),mention:PR()<.78,wrong:PR()<.05};
-  f.within=f.days<=7;
+  const f={brand:PR()<.92,loc:PR()<.82,disc:PR()<.88,hrs:Math.floor(Math.pow(PR(),3)*100),mention:PR()<.78,wrong:PR()<.05};
+  f.within=f.hrs<=48;
   let truth=f.brand&&f.disc&&f.within&&!f.wrong&&(f.loc||f.mention);let judged=false;
   if(PR()<.06){truth=!truth;judged=true}
   const z=-7.1+3.0*f.brand+3.5*f.disc+2.6*f.within+1.0*f.loc+0.8*f.mention-4*f.wrong-1.5*(!f.loc&&!f.mention)+(PR()-.5)*.6;
   const conf=1/(1+Math.exp(-z));
-  const why=[];if(!f.disc)why.push(reasonsTxt.disc);if(!f.brand)why.push(reasonsTxt.brand);if(!f.within)why.push(`Posted ${f.days} days after visit`);if(f.wrong)why.push(reasonsTxt.wrong);if(!f.loc)why.push(reasonsTxt.loc);if(!f.mention)why.push(reasonsTxt.mention);
+  const why=[];if(!f.disc)why.push(reasonsTxt.disc);if(!f.brand)why.push(reasonsTxt.brand);if(!f.within)why.push(`Posted ${f.hrs} hours after visit`);if(f.wrong)why.push(reasonsTxt.wrong);if(!f.loc)why.push(reasonsTxt.loc);if(!f.mention)why.push(reasonsTxt.mention);
   if(judged)why.push(truth?'Reviewer approved anyway':'Reviewer: photo taken elsewhere');
   posts.push({h:creators[(i*7)%creators.length].h,f,truth,conf,why,judged});
 }
